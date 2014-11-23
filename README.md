@@ -1,2 +1,3 @@
 multithreading-xml-orders-parser
 ================================
+ The application monitors a directory of xml files with orders using WatchService and when an event occurs(file creation),  a new working thread is started unless the filename is invalid or is not a file.  The thread will receive the path of the newly created file and will parse that file using SAXParser. Every xml file will be splitted in as many files as the number of unique suppliers. Every supplier file will contain the corresponding products from the original file but sorted descendent by timestamp and price. For a better performance, the application runs in a concurrent way using a pool of threads. 
